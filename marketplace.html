@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="static/media/favicon.png" />
+    <meta content="width=device-width,initial-scale=1" />
+    <meta content="#000000" />
+    <meta content="Web site created using create-react-app" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <link rel="apple-touch-icon" href="static/media/favicon.png" />
+    <title>ShibaPlayer</title>
+    <link href="static/css/main.chunk.css" rel="stylesheet" />
+    <link href="static/css/style.chunk.css" rel="stylesheet" />
+
+    <style id="_goober">
+        @keyframes go487993996 {
+            from {
+                transform: scale(0) rotate(45deg);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) rotate(45deg);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes go1747222846 {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes go2652833988 {
+            from {
+                transform: scale(0) rotate(90deg);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1) rotate(90deg);
+                opacity: 1;
+            }
+        }
+        
+        @keyframes go1268368563 {
+            from {
+                transform: rotate(0deg);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+        
+        @keyframes go3344466522 {
+            0% {
+                height: 0;
+                width: 0;
+                opacity: 0;
+            }
+            40% {
+                height: 0;
+                width: 6px;
+                opacity: 1;
+            }
+            100% {
+                opacity: 1;
+                height: 10px;
+            }
+        }
+        
+        @keyframes go2190974446 {
+            from {
+                transform: scale(0.6);
+                opacity: 0.4;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+    </style>
+    <style data-jss="" data-meta="MuiTouchRipple">
+        .MuiTouchRipple-root {
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            overflow: hidden;
+            position: absolute;
+            border-radius: inherit;
+            pointer-events: none;
+        }
+        
+        .MuiTouchRipple-ripple {
+            opacity: 0;
+            position: absolute;
+        }
+        
+        .MuiTouchRipple-rippleVisible {
+            opacity: 0.3;
+            animation: MuiTouchRipple-keyframes-enter 550ms cubic-bezier(0.4, 0, 0.2, 1);
+            transform: scale(1);
+        }
+        
+        .MuiTouchRipple-ripplePulsate {
+            animation-duration: 200ms;
+        }
+        
+        .MuiTouchRipple-child {
+            width: 100%;
+            height: 100%;
+            display: block;
+            opacity: 1;
+            border-radius: 50%;
+            background-color: currentColor;
+        }
+        
+        .MuiTouchRipple-childLeaving {
+            opacity: 0;
+            animation: MuiTouchRipple-keyframes-exit 550ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .MuiTouchRipple-childPulsate {
+            top: 0;
+            left: 0;
+            position: absolute;
+            animation: MuiTouchRipple-keyframes-pulsate 2500ms cubic-bezier(0.4, 0, 0.2, 1) 200ms infinite;
+        }
+        
+        @-webkit-keyframes MuiTouchRipple-keyframes-enter {
+            0% {
+                opacity: 0.1;
+                transform: scale(0);
+            }
+            100% {
+                opacity: 0.3;
+                transform: scale(1);
+            }
+        }
+        
+        @-webkit-keyframes MuiTouchRipple-keyframes-exit {
+            0% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+            }
+        }
+        
+        @-webkit-keyframes MuiTouchRipple-keyframes-pulsate {
+            0% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(0.92);
+            }
+            100% {
+                transform: scale(1);
+            }
+        }
+    </style>
+    <style data-jss="" data-meta="MuiButtonBase">
+        .MuiButtonBase-root {
+            color: inherit;
+            border: 0;
+            cursor: pointer;
+            margin: 0;
+            display: inline-flex;
+            outline: 0;
+            padding: 0;
+            position: relative;
+            align-items: center;
+            border-radius: 0;
+            vertical-align: middle;
+            -moz-appearance: none;
+            justify-content: center;
+            text-decoration: none;
+            background-color: transparent;
+            -webkit-appearance: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+        
+        .MuiButtonBase-root::-moz-focus-inner {
+            border-style: none;
+        }
+        
+        .MuiButtonBase-root.Mui-disabled {
+            cursor: default;
+            pointer-events: none;
+        }
+        
+        @media only screen and (max-width: 1275px) {
+            .buy-section {
+                flex-wrap: wrap;
+            }
+        }
+        
+        @media only screen and (max-width: 1102px) {
+            .buy-div {
+                padding-right: 60px;
+            }
+        }
+        
+        @media only screen and (max-width: 1102px) {
+            .buy-section-one {
+                width: 95%;
+                font-size: 40px !important;
+            }
+            .buy-section-one h3 {
+                font-size: 3vh;
+            }
+            .buy-section-one h4 {
+                font-size: 2vh;
+            }
+            .buy-section-one h6 {
+                font-size: 1.5vh;
+            }
+        }
+        
+    </style>
+    <style data-jss="" data-meta="MuiButton">
+        .MuiButton-root {
+            color: rgba(0, 0, 0, 0.87);
+            padding: 6px 16px;
+            font-size: 0.875rem;
+            min-width: 64px;
+            box-sizing: border-box;
+            transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+            font-weight: 500;
+            line-height: 1.75;
+            border-radius: 4px;
+            letter-spacing: 0.02857em;
+            text-transform: uppercase;
+        }
+        
+        .MuiButton-root:hover {
+            text-decoration: none;
+            background-color: rgba(0, 0, 0, 0.04);
+        }
+        
+        .MuiButton-root.Mui-disabled {
+            color: rgba(0, 0, 0, 0.26);
+        }
+        
+        @media (hover: none) {
+            .MuiButton-root:hover {
+                background-color: transparent;
+            }
+        }
+        
+        .MuiButton-root:hover.Mui-disabled {
+            background-color: transparent;
+        }
+        
+        .MuiButton-label {
+            width: 100%;
+            display: inherit;
+            align-items: inherit;
+            justify-content: inherit;
+        }
+        
+        .MuiButton-text {
+            padding: 6px 8px;
+        }
+        
+        .MuiButton-textPrimary {
+            color: #3f51b5;
+        }
+        
+        .MuiButton-textPrimary:hover {
+            background-color: rgba(63, 81, 181, 0.04);
+        }
+        
+        @media (hover: none) {
+            .MuiButton-textPrimary:hover {
+                background-color: transparent;
+            }
+        }
+        
+        .MuiButton-textSecondary {
+            color: #f50057;
+        }
+        
+        .MuiButton-textSecondary:hover {
+            background-color: rgba(245, 0, 87, 0.04);
+        }
+        
+        @media (hover: none) {
+            .MuiButton-textSecondary:hover {
+                background-color: transparent;
+            }
+        }
+        
+        .MuiButton-outlined {
+            border: 1px solid rgba(0, 0, 0, 0.23);
+            padding: 5px 15px;
+        }
+        
+        .MuiButton-outlined.Mui-disabled {
+            border: 1px solid rgba(0, 0, 0, 0.12);
+        }
+        
+        .MuiButton-outlinedPrimary {
+            color: #3f51b5;
+            border: 1px solid rgba(63, 81, 181, 0.5);
+        }
+        
+        .MuiButton-outlinedPrimary:hover {
+            border: 1px solid #3f51b5;
+            background-color: rgba(63, 81, 181, 0.04);
+        }
+        
+        @media (hover: none) {
+            .MuiButton-outlinedPrimary:hover {
+                background-color: transparent;
+            }
+        }
+        
+        .MuiButton-outlinedSecondary {
+            color: #f50057;
+            border: 1px solid rgba(245, 0, 87, 0.5);
+        }
+        
+        .MuiButton-outlinedSecondary:hover {
+            border: 1px solid #f50057;
+            background-color: rgba(245, 0, 87, 0.04);
+        }
+        
+        .MuiButton-outlinedSecondary.Mui-disabled {
+            border: 1px solid rgba(0, 0, 0, 0.26);
+        }
+        
+        @media (hover: none) {
+            .MuiButton-outlinedSecondary:hover {
+                background-color: transparent;
+            }
+        }
+        
+        .MuiButton-contained {
+            color: rgba(0, 0, 0, 0.87);
+            box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+            background-color: #e0e0e0;
+        }
+        
+        .MuiButton-contained:hover {
+            box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+            background-color: #d5d5d5;
+        }
+        
+        .MuiButton-contained.Mui-focusVisible {
+            box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);
+        }
+        
+        .MuiButton-contained:active {
+            box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+        }
+        
+        .MuiButton-contained.Mui-disabled {
+            color: rgba(0, 0, 0, 0.26);
+            box-shadow: none;
+            background-color: rgba(0, 0, 0, 0.12);
+        }
+        
+        @media (hover: none) {
+            .MuiButton-contained:hover {
+                box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+                background-color: #e0e0e0;
+            }
+        }
+        
+        .MuiButton-contained:hover.Mui-disabled {
+            background-color: rgba(0, 0, 0, 0.12);
+        }
+        
+        .MuiButton-containedPrimary {
+            color: #fff;
+            background-color: #3f51b5;
+        }
+        
+        .MuiButton-containedPrimary:hover {
+            background-color: #303f9f;
+        }
+        
+        @media (hover: none) {
+            .MuiButton-containedPrimary:hover {
+                background-color: #3f51b5;
+            }
+        }
+        
+        .MuiButton-containedSecondary {
+            color: #fff;
+            background-color: #f50057;
+        }
+        
+        .MuiButton-containedSecondary:hover {
+            background-color: #c51162;
+        }
+        
+        @media (hover: none) {
+            .MuiButton-containedSecondary:hover {
+                background-color: #f50057;
+            }
+        }
+        
+        .MuiButton-disableElevation {
+            box-shadow: none;
+        }
+        
+        .MuiButton-disableElevation:hover {
+            box-shadow: none;
+        }
+        
+        .MuiButton-disableElevation.Mui-focusVisible {
+            box-shadow: none;
+        }
+        
+        .MuiButton-disableElevation:active {
+            box-shadow: none;
+        }
+        
+        .MuiButton-disableElevation.Mui-disabled {
+            box-shadow: none;
+        }
+        
+        .MuiButton-colorInherit {
+            color: inherit;
+            border-color: currentColor;
+        }
+        
+        .MuiButton-textSizeSmall {
+            padding: 4px 5px;
+            font-size: 0.8125rem;
+        }
+        
+        .MuiButton-textSizeLarge {
+            padding: 8px 11px;
+            font-size: 0.9375rem;
+        }
+        
+        .MuiButton-outlinedSizeSmall {
+            padding: 3px 9px;
+            font-size: 0.8125rem;
+        }
+        
+        .MuiButton-outlinedSizeLarge {
+            padding: 7px 21px;
+            font-size: 0.9375rem;
+        }
+        
+        .MuiButton-containedSizeSmall {
+            padding: 4px 10px;
+            font-size: 0.8125rem;
+        }
+        
+        .MuiButton-containedSizeLarge {
+            padding: 8px 22px;
+            font-size: 0.9375rem;
+        }
+        
+        .MuiButton-fullWidth {
+            width: 100%;
+        }
+        
+        .MuiButton-startIcon {
+            display: inherit;
+            margin-left: -4px;
+            margin-right: 8px;
+        }
+        
+        .MuiButton-startIcon.MuiButton-iconSizeSmall {
+            margin-left: -2px;
+        }
+        
+        .MuiButton-endIcon {
+            display: inherit;
+            margin-left: 8px;
+            margin-right: -4px;
+        }
+        
+        .MuiButton-endIcon.MuiButton-iconSizeSmall {
+            margin-right: -2px;
+        }
+        
+        .MuiButton-iconSizeSmall>*:first-child {
+            font-size: 18px;
+        }
+        
+        .MuiButton-iconSizeMedium>*:first-child {
+            font-size: 20px;
+        }
+        
+        .MuiButton-iconSizeLarge>*:first-child {
+            font-size: 22px;
+        }
+    </style>
+    <style data-jss="" data-meta="MuiButtonGroup">
+        .MuiButtonGroup-root {
+            display: inline-flex;
+            border-radius: 4px;
+        }
+        
+        .MuiButtonGroup-contained {
+            box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+        }
+        
+        .MuiButtonGroup-disableElevation {
+            box-shadow: none;
+        }
+        
+        .MuiButtonGroup-fullWidth {
+            width: 100%;
+        }
+        
+        .MuiButtonGroup-vertical {
+            flex-direction: column;
+        }
+        
+        .MuiButtonGroup-grouped {
+            min-width: 40px;
+        }
+        
+        .MuiButtonGroup-groupedHorizontal:not(:first-child) {
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+        }
+        
+        .MuiButtonGroup-groupedHorizontal:not(:last-child) {
+            border-top-right-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .MuiButtonGroup-groupedVertical:not(:first-child) {
+            border-top-left-radius: 0;
+            border-top-right-radius: 0;
+        }
+        
+        .MuiButtonGroup-groupedVertical:not(:last-child) {
+            border-bottom-left-radius: 0;
+            border-bottom-right-radius: 0;
+        }
+        
+        .MuiButtonGroup-groupedTextHorizontal:not(:last-child) {
+            border-right: 1px solid rgba(0, 0, 0, 0.23);
+        }
+        
+        .MuiButtonGroup-groupedTextVertical:not(:last-child) {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.23);
+        }
+        
+        .MuiButtonGroup-groupedTextPrimary:not(:last-child) {
+            border-color: rgba(63, 81, 181, 0.5);
+        }
+        
+        .MuiButtonGroup-groupedTextSecondary:not(:last-child) {
+            border-color: rgba(245, 0, 87, 0.5);
+        }
+        
+        .MuiButtonGroup-groupedOutlinedHorizontal:not(:first-child) {
+            margin-left: -1px;
+        }
+        
+        .MuiButtonGroup-groupedOutlinedHorizontal:not(:last-child) {
+            border-right-color: transparent;
+        }
+        
+        .MuiButtonGroup-groupedOutlinedVertical:not(:first-child) {
+            margin-top: -1px;
+        }
+        
+        .MuiButtonGroup-groupedOutlinedVertical:not(:last-child) {
+            border-bottom-color: transparent;
+        }
+        
+        .MuiButtonGroup-groupedOutlinedPrimary:hover {
+            border-color: #3f51b5;
+        }
+        
+        .MuiButtonGroup-groupedOutlinedSecondary:hover {
+            border-color: #f50057;
+        }
+        
+        .MuiButtonGroup-groupedContained {
+            box-shadow: none;
+        }
+        
+        .MuiButtonGroup-groupedContainedHorizontal:not(:last-child) {
+            border-right: 1px solid #bdbdbd;
+        }
+        
+        .MuiButtonGroup-groupedContainedHorizontal:not(:last-child).Mui-disabled {
+            border-right: 1px solid rgba(0, 0, 0, 0.26);
+        }
+        
+        .MuiButtonGroup-groupedContainedVertical:not(:last-child) {
+            border-bottom: 1px solid #bdbdbd;
+        }
+        
+        .MuiButtonGroup-groupedContainedVertical:not(:last-child).Mui-disabled {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.26);
+        }
+        
+        .MuiButtonGroup-groupedContainedPrimary:not(:last-child) {
+            border-color: #303f9f;
+        }
+        
+        .MuiButtonGroup-groupedContainedSecondary:not(:last-child) {
+            border-color: #c51162;
+        }
+    </style>
+    <style data-jss="" data-meta="MuiSvgIcon">
+        .MuiSvgIcon-root {
+            fill: currentColor;
+            width: 1em;
+            height: 1em;
+            display: inline-block;
+            font-size: 1.5rem;
+            transition: fill 200ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+            flex-shrink: 0;
+            user-select: none;
+        }
+        
+        .MuiSvgIcon-colorPrimary {
+            color: #3f51b5;
+        }
+        
+        .MuiSvgIcon-colorSecondary {
+            color: #f50057;
+        }
+        
+        .MuiSvgIcon-colorAction {
+            color: rgba(0, 0, 0, 0.54);
+        }
+        
+        .MuiSvgIcon-colorError {
+            color: #f44336;
+        }
+        
+        .MuiSvgIcon-colorDisabled {
+            color: rgba(0, 0, 0, 0.26);
+        }
+        
+        .MuiSvgIcon-fontSizeInherit {
+            font-size: inherit;
+        }
+        
+        .MuiSvgIcon-fontSizeSmall {
+            font-size: 1.25rem;
+        }
+        
+        .MuiSvgIcon-fontSizeLarge {
+            font-size: 2.1875rem;
+        }
+    </style>
+    <style data-jss="" data-meta="makeStyles">
+        .jss1 {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .jss1>* {
+            margin-bottom: 16px;
+        }
+        
+        .jss1 .MuiBadge-root {
+            margin-right: 32px;
+        }
+        
+        .jss2 {
+            color: #26016f;
+            width: 25px;
+            height: 25px;
+            box-shadow: 0 1px 2px 2px #000000;
+            font-weight: bolder;
+            border-radius: 5px;
+        }
+        
+        .jss2:hover {
+            background-color: #705bb6;
+        }
+        
+        .jss2:disabled {
+            color: #00ff3a;
+        }
+        
+        .jss3 {
+            color: #26016f;
+            border: 0;
+            height: 50px;
+            padding: 0 30px;
+            font-size: 1.6vmax;
+            box-shadow: 0 1px 2px 2px #000000;
+            font-weight: bolder;
+            border-radius: 8px;
+        }
+        
+        .jss3:hover {
+            background-color: #705bb6;
+        }
+        
+        .jss4 {
+            text-transform: capitalize;
+        }
+        
+        .container {
+            width: 100%;
+            margin-right: auto;
+            margin-left: auto;
+            padding-right: 20px;
+            padding-left: 20px;
+            -webkit-box-orient: vertical;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: column;
+            -ms-flex-direction: column;
+            flex-direction: column;
+            -webkit-box-pack: center;
+            -webkit-justify-content: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+            color: hsla(36, 0%, 100%, 0.66);
+        }
+        
+        .container.howtobuycontainer {
+            display: -webkit-box;
+            display: -webkit-flex;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -webkit-flex-direction: row;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -webkit-box-align: center;
+            -webkit-align-items: center;
+            -ms-flex-align: center;
+            align-items: center;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-2cffaa04:not(.elementor-motion-effects-element-type-background),
+        .elementor-136 .elementor-element.elementor-element-2cffaa04>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+            background-color: var(--e-global-color-92615ce);
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-2cffaa04 {
+            transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+            padding: 1em 1em 6em 1em;
+        }
+        
+        .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+            padding: 10px;
+        }
+        
+        .elementor:not(.elementor-bc-flex-widget) .elementor-widget-wrap {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        
+        .elementor-widget-wrap {
+            position: relative;
+            width: 100%;
+            -ms-flex-line-pack: start;
+            align-content: flex-start;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-492d5c4a:not(.elementor-motion-effects-element-type-background),
+        .elementor-136 .elementor-element.elementor-element-492d5c4a>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+            background-color: var(--e-global-color-171c195);
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-492d5c4a {
+            border-style: solid;
+            border-width: 2px 2px 2px 2px;
+            border-color: var(--e-global-color-89f288d);
+            transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            padding: 1em 1em 2em 0em;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-492d5c4a>.elementor-container {
+            max-width: 1400px;
+        }
+        
+        .elementor-section.elementor-section-boxed>.elementor-container {
+            max-width: 1140px;
+        }
+        
+        .elementor-column,
+        .elementor-column-wrap {
+            position: relative;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-42bbbb5c.elementor-column.elementor-element[data-element_type="column"]>.elementor-widget-wrap.elementor-element-populated {
+            align-content: center;
+            align-items: center;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-42bbbb5c>.elementor-element-populated {
+            margin: 0px 50px 0px 50px;
+            --e-column-margin-right: 50px;
+            --e-column-margin-left: 050px;
+            padding: 0px 0px 0px 0px;
+        }
+        
+        .elementor-section .elementor-container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-right: auto;
+            margin-left: auto;
+            position: relative;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-53776ce.elementor-column.elementor-element[data-element_type="column"]>.elementor-widget-wrap.elementor-element-populated {
+            align-content: center;
+            align-items: center;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-4ebec62 {
+            text-align: center;
+        }
+        
+        .elementor-widget-wrap>.elementor-element {
+            width: -moz-fit-content;
+            border-radius: 80px;
+            background-color: #26016f;
+            font-size: 22px;
+            margin: 30px;
+            color: #a9e8ec;
+            text-align: left;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-492d5c4a:not(.elementor-motion-effects-element-type-background),
+        .elementor-136 .elementor-element.elementor-element-492d5c4a>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+            background-color: #464786;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-492d5c4a {
+            border-style: solid;
+            border-width: 2px 2px 2px 2px;
+            border-color: #464786;
+            transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+            margin-top: 12px;
+            margin-bottom: 12px;
+            padding: 1em 1em 2em 0em;
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-2cffaa04:not(.elementor-motion-effects-element-type-background),
+        .elementor-136 .elementor-element.elementor-element-2cffaa04>.elementor-motion-effects-container>.elementor-motion-effects-layer {
+            background-color: var(--e-global-color-92615ce);
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-2cffaa04 {
+            transition: background 0.3s, border 0.3s, border-radius 0.3s, box-shadow 0.3s;
+            padding: 1em 1em 6em 1em;
+        }
+        
+        .elementor-section {
+            position: relative;
+        }
+        
+        .elementor *,
+        .elementor :after,
+        .elementor :before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        *,
+         :after,
+         :before {
+            -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+        }
+        
+        user agent stylesheet section {
+            display: block;
+        }
+        
+        .elementor {
+            -webkit-hyphens: manual;
+            -ms-hyphens: manual;
+            hyphens: manual;
+        }
+        
+        @media (max-width: 767px) {
+            .elementor-kit-72 {
+                --e-global-typography-primary-font-size: 52px;
+                --e-global-typography-primary-line-height: 1em;
+                --e-global-typography-secondary-font-size: 40px;
+                --e-global-typography-secondary-line-height: 1em;
+            }
+        }
+        
+        .elementor-136 .elementor-element.elementor-element-2cffaa04>.elementor-container {
+            max-width: 1223px;
+        }
+        
+        @media (max-width: 767px) {
+            .elementor-section.elementor-section-boxed>.elementor-container {
+                max-width: 300px;
+            }
+            .elementor-widget-container img {
+                width: 40;
+                height: 40;
+                margin: 0;
+            }
+            .elementor-column-gap-default>.elementor-column>.elementor-element-populated {
+                padding: 0;
+            }
+
+            .elementor-column-gap-default>.elementor-column>.elementor-element-populated .elementor-widget-image{
+                margin: 0;
+                margin-left: 25px;
+                text-align: center;
+            }
+            .elementor-widget-image{
+                width: 40;
+                height: 40;
+                margin: 0;
+                padding: 0;
+            }
+        }
+        
+        @media (max-width: 1024px) {
+            .elementor-section.elementor-section-boxed>.elementor-container {
+                max-width: 1024px;
+            }
+            .elementor-section .elementor-container {
+                -ms-flex-wrap: wrap;
+                flex-wrap: wrap;
+            }
+        }
+        
+        .elementor-section.elementor-section-boxed>.elementor-container {
+            max-width: 1140px;
+        }
+        
+        .elementor-section.elementor-section-boxed>.elementor-container {
+            max-width: 1140px;
+        }
+        
+        .elementor-section .elementor-container {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            margin-right: auto;
+            margin-left: auto;
+            position: relative;
+        }
+
+    </style>
+</head>
+
+<body data-aos-easing="ease" data-aos-duration="1400" data-aos-delay="0">
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root">
+        <div style="position: fixed; z-index: 9999"></div>
+        <div class="App">
+            <div>
+                <div class="banner" style="background-image:url(static/media/bg2.jpg) ;    height: 1200px !important;"></div>
+                <div class="nav-bar">
+                    <div>
+                        <div class="nav-links">
+                            <a href="https://www.pinksale.finance/#/launchpad/0xcec3784e99A85B80C27f91FDf1Ac37f38F32c689?chain=BSC"><button class="MuiButtonBase-root link-btn" tabindex="0" type="button" style="padding: 10px;border-radius: 10%;background: hsl(42 47% 41% / 84%);color: #6ef162;"><span class="MuiButton-label jss4">pinksale</span></button></a>
+
+                            <a href="dapp/index.html"><button class="MuiButtonBase-root link-btn" tabindex="0" type="button" style="background: hsl(42 47% 41% / 84%);padding: 10px;border-radius: 10%;color: #6ef162;"><span class="MuiButton-label jss4">Dapp</span></button></a>
+
+                            <a href="index.html"><button class="link-btn">Home</button></a>
+
+                            <a href="marketplace.html"><button class="link-btn">Marketplace</button></a>
+                            <a href="index.html#tokenomics"><button class="link-btn">Tokenomics</button></a>
+                            <a href="index.html#roadmap"><button class="link-btn">Roadmap</button></a>
+                            <a href="index.html#howto"><button class="link-btn">How to buy</button></a>
+                            <a href="index.html#team"><button class="link-btn">Our team</button></a>
+                            <a href="https://github.com/coinscope-co/audits/blob/main/1-dst/audit.pdf" target="_blank"><button class="link-btn">Audit</button></a>
+
+                            <a hidden href="#faq"><button class="link-btn">FAQ</button></a>
+                        </div>
+                        <div class="external-link">
+                            <a href="https://twitter.com/Dogexstar">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48" style="fill: #000000">
+                    <path
+                      fill="#03a9f4"
+                      d="M24,4C13,4,4,13,4,24s9,20,20,20s20-9,20-20S35,4,24,4z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M36,17.1c-0.9,0.4-2,0.8-3,0.9c1-0.6,2.6-1.9,3-3c-1,0.6-2.7,1.2-3.8,1.4C31.3,15.4,30,15,28.6,15	c-2.7,0-4.6,2.3-4.6,5v2c-4,0-7.9-3-10.3-6c-0.4,0.7-0.7,1.6-0.7,2.5c0,1.8,1.7,3.7,3,4.5c-0.8,0-2.3-0.6-3-1c0,0,0,0,0,0.1	c0,2.4,1.7,4,3.9,4.4C16.5,26.6,16,27,14.1,27c0.6,1.9,3.8,3,5.9,3c-1.7,1.3-4.7,2-7,2c-0.4,0-0.6,0-1,0c2.2,1.4,5.2,2,8,2	c9.1,0,14-6.9,14-13.4c0-0.2,0-0.9,0-1.1C35,18.8,35.3,18.1,36,17.1"
+                    ></path>
+                  </svg> </a>
+                            <a href="https://t.me/ShibaPlayerofficial">
+                                <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="96" height="96" viewBox="0 0 48 48" style="fill: #000000">
+                    <path
+                      fill="#29b6f6"
+                      d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"
+                    ></path>
+                    <path
+                      fill="#fff"
+                      d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z"
+                    ></path>
+                    <path
+                      fill="#b0bec5"
+                      d="M23,30.505l-3.426,3.374c0,0-0.149,0.115-0.348,0.12c-0.069,0.002-0.143-0.009-0.219-0.043 l0.964-5.965L23,30.505z"
+                    ></path>
+                    <path
+                      fill="#cfd8dc"
+                      d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z"
+                    ></path>
+                  </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <h1 class="side-menu-logo aos-init aos-animate" data-aos="zoom-in">
+                    ShibaPlayer
+                </h1>
+                <div class="slide-menu">
+                    <svg height="384pt" viewBox="0 -53 384 384" width="384pt" xmlns="http://www.w3.org/2000/svg" class="slide-menu-icon">
+              <path
+                d="m368 154.667969h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
+              ></path>
+              <path
+                d="m368 32h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
+              ></path>
+              <path
+                d="m368 277.332031h-352c-8.832031 0-16-7.167969-16-16s7.167969-16 16-16h352c8.832031 0 16 7.167969 16 16s-7.167969 16-16 16zm0 0"
+              ></path>
+            </svg>
+                    
+                </div>
+                <div style="margin: 10vh 0px 80vh;">
+                    <div class="mint-component">
+                       <div class="counter-button-container">
+                          <h1>Mint your ShibaPlayer NFT</h1>
+                          <br>
+                          <div style="display: flex; justify-content: center; margin-top: 2vh;">
+                             <div class="jss1">
+                                <div>
+                                   <div role="group" class="MuiButtonGroup-root" style="display: flex; justify-content: center; align-items: center; margin-right: 3vw;">
+                                      <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlined jss2" tabindex="0" type="button" aria-label="reduce">
+                                         <span class="MuiButton-label">
+                                            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="font-weight: bolder; font-size: 1.6vmax;">
+                                               <path d="M19 13H5v-2h14v2z"></path>
+                                            </svg>
+                                         </span>
+                                         <span class="MuiTouchRipple-root"></span>
+                                      </button>
+                                      <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlined Mui-disabled Mui-disabled" tabindex="-1" type="button" disabled="" style="box-shadow: rgb(0, 0, 0) 0px 1px 2px 2px; width: 50px; height: 50px; display: flex; justify-content: center; align-items: center; margin: 0px 10px; color: #26016f; font-size: 1.3vmax; font-weight: bolder; border-radius: 8px;"><span class="MuiButton-label">1</span></button>
+                                      <button class="MuiButtonBase-root MuiButton-root MuiButton-outlined MuiButtonGroup-grouped MuiButtonGroup-groupedHorizontal MuiButtonGroup-groupedOutlined MuiButtonGroup-groupedOutlinedHorizontal MuiButtonGroup-groupedOutlined jss2" tabindex="0" type="button" aria-label="increase">
+                                         <span class="MuiButton-label">
+                                            <svg class="MuiSvgIcon-root" focusable="false" viewBox="0 0 24 24" aria-hidden="true" style="font-weight: bold; font-size: 1.5vmax;">
+                                               <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"></path>
+                                            </svg>
+                                         </span>
+                                         <span class="MuiTouchRipple-root"></span>
+                                      </button>
+                                   </div>
+                                </div>
+                             </div>
+                             <button class="MuiButtonBase-root MuiButton-root jss3 MuiButton-text" tabindex="0" type="button"><span class="MuiButton-label jss4">Mint</span><span class="MuiTouchRipple-root"></span></button>
+                          </div>
+                          <div style="padding: 10px; display: flex; justify-content: space-around; box-shadow: rgba(113, 99, 158, 0.66) 0px 0px 10px 5px; border-radius: 5px; margin: 2vh 0px 1vh;"><span>Coming Soon...</span></div>
+                       </div>
+                    </div>
+                 </div>
+
+                
+            </div>
+            <div class="home">
+                <div style="height: 5vh">
+                    <div style="margin: 0 0px 5vh"></div>
+                </div>
+            
+
+
+
+
+
+            </div>
+            <div class="footer">
+                <h1>ShibaPlayer community</h1>
+                <div class="footer-link">
+                    <a href="https://twitter.com/Dogexstar">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="144" height="144" viewBox="0 0 48 48" style="fill: #000000">
+                <path
+                  fill="#03A9F4"
+                  d="M42,12.429c-1.323,0.586-2.746,0.977-4.247,1.162c1.526-0.906,2.7-2.351,3.251-4.058c-1.428,0.837-3.01,1.452-4.693,1.776C34.967,9.884,33.05,9,30.926,9c-4.08,0-7.387,3.278-7.387,7.32c0,0.572,0.067,1.129,0.193,1.67c-6.138-0.308-11.582-3.226-15.224-7.654c-0.64,1.082-1,2.349-1,3.686c0,2.541,1.301,4.778,3.285,6.096c-1.211-0.037-2.351-0.374-3.349-0.914c0,0.022,0,0.055,0,0.086c0,3.551,2.547,6.508,5.923,7.181c-0.617,0.169-1.269,0.263-1.941,0.263c-0.477,0-0.942-0.054-1.392-0.135c0.94,2.902,3.667,5.023,6.898,5.086c-2.528,1.96-5.712,3.134-9.174,3.134c-0.598,0-1.183-0.034-1.761-0.104C9.268,36.786,13.152,38,17.321,38c13.585,0,21.017-11.156,21.017-20.834c0-0.317-0.01-0.633-0.025-0.945C39.763,15.197,41.013,13.905,42,12.429"
+                ></path>
+              </svg> </a>
+                    <a href="https://t.me/ShibaPlayerofficial">
+                        <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="144" height="144" viewBox="0 0 48 48" style="fill: #000000">
+                <path
+                  fill="#29b6f6"
+                  d="M24 4A20 20 0 1 0 24 44A20 20 0 1 0 24 4Z"
+                ></path>
+                <path
+                  fill="#fff"
+                  d="M33.95,15l-3.746,19.126c0,0-0.161,0.874-1.245,0.874c-0.576,0-0.873-0.274-0.873-0.274l-8.114-6.733 l-3.97-2.001l-5.095-1.355c0,0-0.907-0.262-0.907-1.012c0-0.625,0.933-0.923,0.933-0.923l21.316-8.468 c-0.001-0.001,0.651-0.235,1.126-0.234C33.667,14,34,14.125,34,14.5C34,14.75,33.95,15,33.95,15z"
+                ></path>
+                <path
+                  fill="#b0bec5"
+                  d="M23,30.505l-3.426,3.374c0,0-0.149,0.115-0.348,0.12c-0.069,0.002-0.143-0.009-0.219-0.043 l0.964-5.965L23,30.505z"
+                ></path>
+                <path
+                  fill="#cfd8dc"
+                  d="M29.897,18.196c-0.169-0.22-0.481-0.26-0.701-0.093L16,26c0,0,2.106,5.892,2.427,6.912 c0.322,1.021,0.58,1.045,0.58,1.045l0.964-5.965l9.832-9.096C30.023,18.729,30.064,18.416,29.897,18.196z"
+                ></path>
+              </svg>
+                    </a>
+                </div>
+                <span>ShibaPlayer © 2022 All rights reserved.                </span>
+            </div>
+        </div>
+    </div>
+
+    <script src="static/js/chunk.js"></script>
+    <script src="static/js/main.chunk.js"></script>
+</body>
+
+</html>
